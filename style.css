@@ -1,0 +1,120 @@
+/* Reset and utility class setup */
+
+:root {
+  --white: #faf2e7;
+  --black: #000000;
+  --gutter-width: 1vw;
+  --column: 15;
+  --animation-primary: 0.735s cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  /* --column-width: calc(
+    calc(100vw - (var(--gutter-width) * 11)) / var(--column)
+  ); */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+li {
+  list-style: none;
+}
+
+p,
+span,
+a,
+button {
+  line-height: 0.9cap;
+  font-size: clamp(0.75rem, 1rem + 0.25vw, 0.85rem);
+  text-transform: uppercase;
+  font-weight: 600;
+  text-wrap: nowrap;
+}
+
+span {
+  display: inline-block;
+  overflow: hidden;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--black);
+}
+
+/* Grid layout overlay */
+
+.overlay {
+  opacity: 0;
+  position: fixed;
+  inset: 0 var(--gutter-width);
+  background-image: repeating-linear-gradient(to right,
+      #d2d6f9,
+      #d2d6f9 calc((100% / var(--column)) - var(--gutter-width)),
+      transparent calc((100% / var(--column)) - var(--gutter-width)),
+      transparent calc(100% / var(--column)));
+  background-position: left top;
+  background-size: calc(100% + var(--gutter-width)) 100%;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.overlay::before,
+.overlay::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110%;
+  height: var(--gutter-width);
+  background-color: #8b484879;
+}
+
+.overlay::before {
+  top: 0;
+}
+
+.overlay::after {
+  bottom: 0;
+}
+
+.overlay.active {
+  opacity: 1;
+}
+
+/* Page styling */
+
+/* Responsive design */
+@media (max-width: 750px) {
+  :root {
+    --column: 6;
+  }
+}
