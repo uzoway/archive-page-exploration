@@ -21,8 +21,6 @@
 // CustomEase.create("ease-in-out-expo", "1,0,0,1");
 // CustomEase.create("ease-in-out-circ", "0.785,0.135,0.15,0.86");
 
-// window.addEventListener("DOMContentLoaded", playAnimationOnPageLoad);
-
 // function playAnimationOnPageLoad() {}
 
 // Animate the gallery image on window scroll
@@ -97,7 +95,7 @@ function animateGalleryOnScroll() {
   });
 }
 
-animateGalleryOnScroll();
+window.addEventListener("DOMContentLoaded", animateGalleryOnScroll);
 
 // Toggle the grid visualizer
 document.addEventListener("keydown", (event) => {
