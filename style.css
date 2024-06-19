@@ -186,33 +186,33 @@ img {
 }
 
 .archive__heading .archive__heading--line .heading__line--character:nth-of-type(2) {
-  transform: translate(0%, 0%);
+  transform: translate(-6%, 0%);
   letter-spacing: 0px;
-  padding: 0px;
+  padding: 10px;
 }
 
 .archive__heading .archive__heading--line .heading__line--character:nth-of-type(3) {
-  transform: translate(-30%, 0%);
+  transform: translate(-58%, 0%);
 }
 
 .archive__heading .archive__heading--line .heading__line--character:nth-of-type(4) {
-  transform: translate(-40%, 0%);
+  transform: translate(-65%, 0%);
 }
 
 .archive__heading .archive__heading--line .heading__line--character:nth-of-type(5) {
-  transform: translate(-60%, 0%);
+  transform: translate(-90%, 0%);
 }
 
 .archive__heading .archive__heading--line .heading__line--character:nth-of-type(6) {
-  transform: translate(-180%, 0%);
+  transform: translate(-240%, 0%);
 }
 
 .archive__heading .archive__heading--line .heading__line--character:nth-of-type(7) {
-  transform: translate(-120%, 0%);
+  transform: translate(-155%, 0%);
 }
 
 .archive__heading .archive__heading--line .heading__line--character:nth-of-type(8) {
-  transform: translate(-140%, 0%);
+  transform: translate(-175%, 0%);
 }
 
 .archive__number {
@@ -332,28 +332,32 @@ img {
     font-size: clamp(4.85rem, 1.5556rem + 0.7037vw, 9.25rem);
   }
 
+  .archive__heading .archive__heading--line .heading__line--character:nth-of-type(2) {
+    transform: translate(-15%, 0%);
+  }
+
   .archive__heading .archive__heading--line .heading__line--character:nth-of-type(3) {
-    transform: translate(-45%, 0%);
-  }
-
-  .archive__heading .archive__heading--line .heading__line--character:nth-of-type(4) {
-    transform: translate(-65%, 0%);
-  }
-
-  .archive__heading .archive__heading--line .heading__line--character:nth-of-type(5) {
     transform: translate(-100%, 0%);
   }
 
+  .archive__heading .archive__heading--line .heading__line--character:nth-of-type(4) {
+    transform: translate(-105%, 0%);
+  }
+
+  .archive__heading .archive__heading--line .heading__line--character:nth-of-type(5) {
+    transform: translate(-135%, 0%);
+  }
+
   .archive__heading .archive__heading--line .heading__line--character:nth-of-type(6) {
-    transform: translate(-260%, 0%);
+    transform: translate(-320%, 0%);
   }
 
   .archive__heading .archive__heading--line .heading__line--character:nth-of-type(7) {
-    transform: translate(-190%, 0%);
+    transform: translate(-225%, 0%);
   }
 
   .archive__heading .archive__heading--line .heading__line--character:nth-of-type(8) {
-    transform: translate(-220%, 0%);
+    transform: translate(-250%, 0%);
   }
 
   .archive__number .archive__number--line .number__line--word {
