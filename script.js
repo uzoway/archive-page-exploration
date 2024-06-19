@@ -33,24 +33,68 @@ function animateGalleryOnScroll() {
 
   let currentX = 0;
   let lastScrollY = 0;
+  let startY = 0;
+  let isTouching = false;
 
   const archiveImageGallery = document.querySelector(".archive__images");
 
-  window.addEventListener("wheel", (e) => {
+  function handleWheelEvent(e) {
     lastScrollY += e.deltaY;
     const maxScroll = archiveImageGallery.scrollWidth - window.innerWidth;
     lastScrollY = Math.min(Math.max(lastScrollY, 0), maxScroll);
-  });
+  }
+
+  function handleTouchStart(e) {
+    isTouching = true;
+    startY = e.touches[0].pageY;
+  }
+
+  function handleTouchMove(e) {
+    if (!isTouching) return;
+    const touchY = e.touches[0].pageY;
+    const deltaY = startY - touchY;
+    startY = touchY;
+    lastScrollY += deltaY;
+    const maxScroll = archiveImageGallery.scrollWidth - window.innerWidth;
+    lastScrollY = Math.min(Math.max(lastScrollY, 0), maxScroll);
+  }
+
+  function handleTouchEnd() {
+    isTouching = false;
+  }
+
+  function addEventListeners() {
+    if ("ontouchstart" in window) {
+      window.addEventListener("touchstart", handleTouchStart);
+      window.addEventListener("touchmove", handleTouchMove);
+      window.addEventListener("touchend", handleTouchEnd);
+    }
+    if ("onwheel" in window) {
+      window.addEventListener("wheel", handleWheelEvent);
+    }
+  }
+
+  function removeEventListeners() {
+    window.removeEventListener("touchstart", handleTouchStart);
+    window.removeEventListener("touchmove", handleTouchMove);
+    window.removeEventListener("touchend", handleTouchEnd);
+    window.removeEventListener("wheel", handleWheelEvent);
+  }
 
   function animate() {
     currentX = lerp(currentX, lastScrollY, 0.06);
-
     archiveImageGallery.style.transform = `translateX(-${currentX}px)`;
-
     requestAnimationFrame(animate);
   }
 
+  addEventListeners();
   animate();
+
+  // Listen for screen size changes and adjust event listeners accordingly
+  window.addEventListener("resize", () => {
+    removeEventListeners();
+    addEventListeners();
+  });
 }
 
 animateGalleryOnScroll();
