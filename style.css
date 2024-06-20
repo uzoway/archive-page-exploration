@@ -331,6 +331,11 @@ img {
     --width: 15vw;
     gap: var(--gutter-width);
   }
+
+  .archive__heading {
+    left: 65%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 @media (max-width: 537px) {
