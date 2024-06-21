@@ -1,7 +1,6 @@
 "use strict";
 
-// gsap.registerPlugin(CustomEase, Flip);
-
+// Page load animation
 function playAnimationOnPageLoad() {
   const pageLoadTl = gsap.timeline();
   pageLoadTl
@@ -46,7 +45,7 @@ function playAnimationOnPageLoad() {
     );
 }
 
-// Animate the gallery image on window scroll
+// Animate gallery image on window scroll
 function animateGalleryOnScroll() {
   function lerp(start, end, t) {
     return start * (1 - t) + end * t;
@@ -122,6 +121,45 @@ window.addEventListener("load", () => {
   animateGalleryOnScroll();
   playAnimationOnPageLoad();
 });
+
+// Scale and transform images in the gallery on click
+const imageContainers = document.querySelectorAll(".image__container");
+let isTransformed = false;
+
+for (let i = 0; i < imageContainers.length; i++) {
+  function xTranslateValue() {
+    const windowInnerWidth = window.innerWidth;
+    const imageRectXValue = imageContainers[i].getBoundingClientRect().x;
+    const imageWidth = imageContainers[i].getBoundingClientRect().width * 1.6;
+
+    return windowInnerWidth - imageRectXValue - imageWidth;
+  }
+
+  function yTranslateValue() {
+    const imageHeight = imageContainers[i].getBoundingClientRect().height * 2;
+
+    return -imageHeight;
+  }
+
+  const scaleImageTl = gsap.timeline({ paused: true });
+
+  scaleImageTl.to(imageContainers[i], {
+    x: () => xTranslateValue(),
+    y: () => yTranslateValue(),
+    scale: 2,
+    duration: 1.5,
+    ease: "expo.inOut",
+  });
+
+  imageContainers[i].addEventListener("click", () => {
+    if (!isTransformed) {
+      scaleImageTl.play();
+    } else {
+      scaleImageTl.reverse();
+    }
+    isTransformed = !isTransformed;
+  });
+}
 
 // Toggle the grid visualizer
 document.addEventListener("keydown", (event) => {
