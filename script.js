@@ -8,7 +8,7 @@ function playAnimationOnPageLoad() {
       yPercent: 0,
       y: 0,
       stagger: 0.05,
-      delay: 1.5,
+      delay: 0.5,
       ease: "power1.out",
     })
     .to(
@@ -20,7 +20,7 @@ function playAnimationOnPageLoad() {
         ease: "expo.inOut",
         duration: 1.4,
       },
-      "<+0.725"
+      "<+0.85"
     )
     .to(
       [".navigation__logo--link", ".navigation__btn"],
