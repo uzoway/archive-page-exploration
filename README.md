@@ -1,7 +1,7 @@
-<!-- # Jen Grisowold Personal Website
+# Archive Page Exploration Animation
 
-Development of a conceptual animation for the personal website of digital content creator Jen Griswold.
-Design & Motion by [Alex Tkachev](https://twitter.com/simply_aalex).
+Development of an animation for an Archive Page.
+Design & Motion by [Torfs Bob](https://www.instagram.com/torfsbob/).
 
 ## Table of contents
 
@@ -24,7 +24,7 @@ Design & Motion by [Alex Tkachev](https://twitter.com/simply_aalex).
 
 ### Approach
 
-Feel free to review the code for a more detailed understanding of my approach, as I have simplified it as much as possible.
+Feel free to review the code for a more detailed understanding of my approach
 
 ## Author
 
@@ -33,4 +33,4 @@ Feel free to review the code for a more detailed understanding of my approach, a
 
 ## Credit
 
-Huge credits goes to [Alex Tkachev](https://twitter.com/simply_aalex)🙌 who created the original design and motion which I have coded. -->
+Huge credits goes to [Torfs Bob](https://www.instagram.com/torfsbob/)🙌 who created the original design and motion which I have coded.
